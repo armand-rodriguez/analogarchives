@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     @email = params[:email]
     @message = params[:message]
     ActionMailer::Base.mail(from: @email,
-                            to: 'myemail@domain.com',
+                            to: 'analog.arkives@gmail.com',
                             subject: 'A new contact message from #{@name}',
                             body: @message).deliver_now
   end
