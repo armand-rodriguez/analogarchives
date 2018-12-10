@@ -1,0 +1,17 @@
+<%= link_to 'Keep Shopping', products_path, class:"button is-info" %>
+</hr>
+<section class="section">
+  <%= render @cart.line_items %>
+  <div class="columns">
+    <div class="column">
+      <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: "Are you sure?"}, class: 'button is-danger'%>
+    </div>
+    <div class="column has-text-right">
+      <p class="title is-4">
+        <span class="has-text-grey">Total: </span> <%= number_to_currency(@cart.total_price) %>
+      </p>
+    </div>
+  </div>
+
+
+</section>

@@ -20,6 +20,53 @@
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class:'navbar-item' do %>
+          <h1 class="title is-5 has-text-white">Analog Archives</h1>
+        <% end %>
+        <a class="navbar-burger burger" role="button" aria-label="menu" aria-expanded="false" data-target="navExpand">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navExpand" class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to 'Home', articles_path, class: 'navbar-item' %>
+          <div class="buttons">
+            <%= link_to 'Shop', products_path, class: 'navbar-item button' %>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <% if @cart.line_items.count > 0 %>
+                <%= link_to cart_path(@cart), class: 'navbar-item button is-danger' do %>
+                  <span class="icon is-small">
+                    <i class="fa fa-shopping-cart"></i>
+                  </span>
+                  <% if @cart.line_items.count > 0 %>
+                    <span class="is-dark tag"><%= @cart.line_items.count  %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="buttons">
+            <% if signed_in? %>
+              <%= link_to 'Account', edit_user_registration_path, class: 'button is-info navbar-item' %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button is-danger navbar-item' %>
+            <% end %>
+            <% if not signed_in? %>
+              <%= link_to 'Sign Up', new_user_registration_path, class: 'button is-danger navbar-item' %>
+              <%= link_to 'Sign In', new_user_session_path, class: 'button is-danger navbar-item' %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </nav>
     <section class="section">
       <div class="container">
         <%= yield %>

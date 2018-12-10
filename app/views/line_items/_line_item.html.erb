@@ -1,0 +1,28 @@
+<div class="columns align-items-center">
+  <div class="column is-1">
+    <%= line_item.quantity %>
+  </div>
+  <div class="column is-2">
+    <figure class="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="column is-9">
+    <strong><%= line_item.product.artist %></strong>
+    <span class="subtitle"><%= line_item.product.album %></span>
+    <div class="columns align-items-center">
+      <div class="column content is-9">
+
+      </div>
+      <div class="column is-3 has-text-right">
+        <strong><%= number_to_currency(line_item.total_price) %></strong>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="has-text-right">
+  <%= link_to 'Remove Item', line_item, method: :delete, data: {confirm: 'Are You Sure?'}, class: 'button is-small' %>
+</div>
+<hr>

@@ -1,0 +1,14 @@
+<h1 class="title"><%= @product.artist %></h1>
+<p class="subtitle"><%= @product.album %></p>
+<figure class="image is-4by3">
+  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+</figure>
+<p><%= @product.description %></p>
+<% if @product.price %>
+  <strong><p><%= number_to_currency(@product.price/100.to_f) %></p></strong>
+<% end %>
+<% if signed_in? %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
+<%= button_to 'Add to Cart', line_items_path(product_id: @product), class: 'button is-danger add-to-cart' %>
+<%= link_to 'Back', products_path, class: "button is-danger" %>
