@@ -48,6 +48,6 @@
 
 
 
-<% if signed_in? %>
+<% if signed_in? && current_user.admin? %>
   <%= link_to 'Create an Article', new_article_path, class: 'button is-info' %>
 <% end %>

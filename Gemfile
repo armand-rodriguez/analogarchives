@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-rails'
 gem 'devise'
 gem "font-awesome-rails"
+gem 'cancancan', '~> 1.10'
 
 
 group :development, :test do

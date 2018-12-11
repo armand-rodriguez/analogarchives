@@ -21,7 +21,7 @@
     <% end %>
   </div>
 </section>
-<% if signed_in? %>
+<% if signed_in? && current_user.admin? %>
 <section class="section">
 <%= link_to 'New Product', new_product_path, class: "button is-info" %>
 </section>
