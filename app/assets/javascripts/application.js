@@ -42,3 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+//----------------------- FADE OUT ---------------------------//
+// window.onload = function() {
+//   window.setTimeout(fadeout, 8000);
+// }
+//
+// function fadeout() {
+//   document.getElementById('notification1').style.display = 'none';
+// }
+// function fadeout() {
+//   document.getElementById('notification2').style.display = 'none';
+// }
+// document.get

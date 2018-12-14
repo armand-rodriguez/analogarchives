@@ -11,12 +11,12 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="notification is-success global-notification">
+      <div class="notification is-success global-notification" id="notification1">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>
     <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
+    <div class="notification is-danger global-notification" id="notification2">
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>

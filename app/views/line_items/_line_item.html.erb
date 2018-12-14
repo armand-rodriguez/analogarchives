@@ -15,7 +15,7 @@
 
       </div>
       <div class="column is-3 has-text-right">
-        <strong><%= number_to_currency(line_item.total_price) %></strong>
+        <strong><%= number_to_currency(line_item.total_price/100.to_f) %></strong>
       </div>
     </div>
 
