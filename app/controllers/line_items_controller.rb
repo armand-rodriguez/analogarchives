@@ -28,6 +28,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
+    # add_product found in cart.rb,  method created in cart.rb because it is used on @cart
     @line_item = @cart.add_product(product)
 
     respond_to do |format|
