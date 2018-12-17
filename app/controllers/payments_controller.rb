@@ -1,4 +1,9 @@
 class PaymentsController < ApplicationController
+
+  def new
+
+  end
+  
   def create
   token = params[:stripeToken]
   # Create the charge on Stripe's servers - this will charge the user's card

@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
+  has_many :orders
 
 
 # Used in line_items_controller
