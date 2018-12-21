@@ -11,6 +11,13 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+
+    #we're going to add an if statement here to see if an order already exists for this cart_id, if it does then do not create a new order, merely update it
+    # if !@order
+    #   @order = Order.create(user_id: current_user.id, cart_id: @cart.id)
+    # else
+    #   @order = Order.find_by(cart_id: @cart.id)
+    # end
   end
 
   # GET /carts/new
@@ -45,6 +52,7 @@ class CartsController < ApplicationController
       if @cart.update(cart_params)
         format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
+        @order.update
       else
         format.html { render :edit }
         format.json { render json: @cart.errors, status: :unprocessable_entity }
@@ -77,4 +85,5 @@ class CartsController < ApplicationController
       logger.error "Attempt to access invalid cart"
       redirect_to root_path, notice: 'that cart does not exist'
     end
+
 end

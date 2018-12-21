@@ -1,0 +1,11 @@
+<h1><%= @order.user_id %></h1>
+<h1><%= @order.cart_id %></h1>
+<h1><%= @order.user.first_name %></h1>
+<h1><%= @order.user.last_name %></h1>
+<h1><%= @order.user.email %></h1>
+<% @order.cart.line_items.each do |line_item| %>
+  <p><%= line_item.product.artist %></p>
+  <p><%= line_item.product.album %></p>
+  <p><%= number_to_currency(line_item.product.price/100.to_f) %></p>
+<% end %>
+<h1><%= number_to_currency(@order.cart.total_price/100.to_f) %></h1>

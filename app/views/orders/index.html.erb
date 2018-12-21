@@ -1,0 +1,8 @@
+<% @orders.each do |order| %>
+<div class="container">
+  <h1 class="title">Order id:<%= order.id %></h1>
+  <h1 class="title">User id:<%= order.user_id %></h1>
+  <h1 class="title">Associated Cart Id.<%= order.cart_id %></h1>
+  <hr>
+</div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1 class="title">
+  Order
+</h1>
+<p>Total:<%= number_to_currency(@cart.total_price/100.to_f) %></p>
+<p>items:<%= render @cart.line_items %></p>
+
+<%= render 'form' %>
