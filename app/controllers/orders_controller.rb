@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
 
   #im not sure if this whitelist needs to be here but i'll create a spot for it for now
   def order_params
-    params.require(:order).permit(:cart_id, :user_id)
+    params.require(:order).permit(:cart_id, :user_id, :price)
   end
 
 

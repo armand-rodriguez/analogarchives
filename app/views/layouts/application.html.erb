@@ -37,6 +37,9 @@
           <%= link_to 'Contact', home_contact_path, class: 'navbar-item' %>
           <div class="buttons">
             <%= link_to 'Shop', products_path, class: 'navbar-item button' %>
+            <% if signed_in? && current_user.admin? %>
+              <%= link_to 'Orders', orders_path, class: 'navbar-item button is-danger' %>
+            <% end %>
           </div>
 
         </div>
@@ -57,7 +60,7 @@
           </div>
           <div class="buttons">
             <% if signed_in? %>
-              <%= link_to 'Account', edit_user_registration_path, class: 'button is-info navbar-item' %>
+              <%= link_to "My Account", edit_user_registration_path, class: 'button is-info navbar-item' %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button is-danger navbar-item' %>
             <% end %>
             <% if not signed_in? %>
