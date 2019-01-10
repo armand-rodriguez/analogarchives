@@ -9,3 +9,4 @@
   <p><%= number_to_currency(line_item.product.price/100.to_f) %></p>
 <% end %>
 <h1><%= number_to_currency(@order.cart.total_price/100.to_f) %></h1>
+<h1><strong>Total Price:</strong><%= number_to_currency(@order.total_price/100.to_f) %></h1>

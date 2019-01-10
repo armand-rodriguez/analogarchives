@@ -28,13 +28,15 @@ class OrdersController < ApplicationController
     @order = @cart.orders.new(order_params)
     respond_to do |form|
       if @order.save
-        form.html{ redirect_to @order, notice: 'order was created' }
+        form.html{ redirect_to @cart, notice: 'order was created' }
         form.json{ render 'show', status: :created, location: @order }
+        @cart.increment!(:status, 1)
       else
         form.html{ render 'index', notice: 'there was a problem.' }
         form.json{ render json: @order.errors, status: unprocessable_entity }
       end
     end
+
   end
 
   def destroy
@@ -43,11 +45,7 @@ class OrdersController < ApplicationController
 
   private
 
-  #im not sure if this whitelist needs to be here but i'll create a spot for it for now
   def order_params
-    params.require(:order).permit(:cart_id, :user_id)
+    params.require(:order).permit(:cart_id, :user_id, :total_price)
   end
-
-
-
 end

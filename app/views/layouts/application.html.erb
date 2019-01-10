@@ -43,13 +43,15 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
-              <% if @cart.line_items.count > 0 %>
-                <%= link_to cart_path(@cart), class: 'navbar-item button is-danger' do %>
-                  <span class="icon is-small">
-                    <i class="fa fa-shopping-cart"></i>
-                  </span>
-                  <% if @cart.line_items.count > 0 %>
-                    <span class="is-dark tag"><%= @cart.line_items.count  %></span>
+              <% if @cart.status == 1 %>
+                <% if @cart.line_items.count > 0 %>
+                  <%= link_to cart_path(@cart), class: 'navbar-item button is-danger' do %>
+                    <span class="icon is-small">
+                      <i class="fa fa-shopping-cart"></i>
+                    </span>
+                      <% if @cart.line_items.count > 0 %>
+                      <span class="is-dark tag"><%= @cart.line_items.count  %></span>
+                      <% end %>
                   <% end %>
                 <% end %>
               <% end %>

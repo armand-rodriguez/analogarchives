@@ -12,12 +12,6 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
 
-    #we're going to add an if statement here to see if an order already exists for this cart_id, if it does then do not create a new order, merely update it
-    # if !@order
-    #   @order = Order.create(user_id: current_user.id, cart_id: @cart.id)
-    # else
-    #   @order = Order.find_by(cart_id: @cart.id)
-    # end
   end
 
   # GET /carts/new
@@ -27,6 +21,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
+    redirect_to :show
   end
 
   # POST /carts
