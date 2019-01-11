@@ -1,7 +1,7 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_many :orders
-
+  belongs_to :user, optional: true
 
 # Used in line_items_controller
   def add_product(product)

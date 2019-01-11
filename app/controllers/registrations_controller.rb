@@ -1,5 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  # POST /resource/sign_up
+  def create
+    super
+      @cart.update_attributes(user_id: current_user.id)
+  end
+
 private
 
   def sign_up_params

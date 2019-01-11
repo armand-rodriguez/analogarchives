@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   skip_authorize_resource only: [:show, :new, :create]
+
   def index
     @orders = Order.all
   end
@@ -11,7 +12,13 @@ class OrdersController < ApplicationController
   end
 
   def new
+    # this first line you might not need because its already called in the application controller through the current_cart concern
     @cart = Cart.find(session[:cart_id])
+    # @cart.user_id = current_user.id
+    if @cart.total_price == 0
+      redirect_to products_path
+      flash[:alert] = "Your cart is currently empty!"
+    end
     @order = Order.new
     # @cart = Cart.find(session[:cart_id])
     # if Order.exists? user_id: current_user.id

@@ -10,3 +10,7 @@ User.create!(first_name: 'adminfirst', last_name: 'adminlast', email: 'admin@adm
 User.create!(first_name: 'user1first', last_name: 'user2last', email: 'testuser2@test.com', password: 'asdasd', password_confirmation: 'asdasd', admin: false)
 Product.create!(artist: 'test artist 1', album: 'test album 1', description: 'this is a test description for artist 1.', price: 420)
 Product.create!(artist: 'test artist 2', album: 'test album 2', description: 'this is a test description for artist 2.', price: 200)
+Product.create!(artist: 'test artist 3', album: 'test album 3', description: 'this is a test description for artist 3.', price: 550)
+Product.create!(artist: 'test artist 4', album: 'test album 4', description: 'this is a test description for artist 4.', price: 900)
+Product.create!(artist: 'test artist 5', album: 'test album 5', description: 'this is a test description for artist 5.', price: 680)
+Product.create!(artist: 'test artist 6', album: 'test album 6', description: 'this is a test description for artist 6.', price: 375)
