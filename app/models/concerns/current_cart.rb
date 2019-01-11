@@ -14,6 +14,7 @@ def set_cart
   if @cart.status == 2
     @cart = Cart.create
     session[:cart_id] = @cart.id
+    @cart.update_attributes(user_id: current_user.id)
   end
 rescue ActiveRecord::RecordNotFound
   @cart = Cart.create
