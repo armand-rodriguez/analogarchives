@@ -36,7 +36,10 @@ class Ability
         can :manage, :all
       else
         can :manage, User, id: user.id
-        
+        # can :read, Cart, session.cart_id: cart.id
+        if user
+          can :read, Cart, user_id: user.id
+        end
       end
     end
   end

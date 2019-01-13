@@ -1,7 +1,7 @@
-<h1><%= @order.user_id %></h1>
-<h1><%= @order.cart_id %></h1>
-<h1><%= @order.user.first_name %></h1>
-<h1><%= @order.user.last_name %></h1>
+<h1><strong>User ID:</strong><%= @order.user_id %></h1>
+<h1><strong>Cart ID:</strong><%= @order.cart_id %></h1>
+<h1><strong>First Name:</strong><%= @order.user.first_name %></h1>
+<h1><strong>Last Name:</strong><%= @order.user.last_name %></h1>
 <h1><%= @order.user.email %></h1>
 <% @order.cart.line_items.each do |line_item| %>
   <p><%= line_item.product.artist %></p>

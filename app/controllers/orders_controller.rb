@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  skip_authorize_resource only: [:show, :new, :create]
+  # skip_authorize_resource only: [:show, :new, :create]
 
   def index
     @orders = Order.all
