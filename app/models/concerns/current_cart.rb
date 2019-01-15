@@ -19,6 +19,8 @@ def set_cart
 rescue ActiveRecord::RecordNotFound
   @cart = Cart.create
   session[:cart_id] = @cart.id
+  @cart.update_attributes(user_id: current_or_guest_user.id)
+
 end
 
 

@@ -12,7 +12,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    
+
   end
 
   # GET /carts/new
@@ -79,8 +79,8 @@ class CartsController < ApplicationController
       params.fetch(:cart, {})
     end
     def invalid_cart
-      logger.error "Attempt to access invalid cart"
-      redirect_to root_path, notice: 'that cart does not exist'
+      logger.error "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Attempt to access invalid cart"
+      redirect_to root_path, alert: 'that cart does not exist'
     end
 
 end

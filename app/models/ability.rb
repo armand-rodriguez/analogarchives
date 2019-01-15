@@ -29,18 +29,18 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    def initialize(user)
+
 
       user ||= User.new
       if user.admin?
         can :manage, :all
       else
         can :manage, User, id: user.id
-        # can :read, Cart, session.cart_id: cart.id
-        if user
-          can :read, Cart, user_id: user.id
-        end
+        can :read, Cart, user_id: user.id
+        can :create, Order
       end
-    end
+
+
   end
+
 end

@@ -12,6 +12,8 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
       @cart.update_attributes(user_id: current_user.id)
+      # @guest.update_attributes(cart_id: nil)
+      current_or_guest_user
   end
 
   # DELETE /resource/sign_out
