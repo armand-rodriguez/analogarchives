@@ -20,12 +20,7 @@ class OrdersController < ApplicationController
       flash[:alert] = "Your cart is currently empty!"
     end
     @order = Order.new
-    # @cart = Cart.find(session[:cart_id])
-    # if Order.exists? user_id: current_user.id
-    #   @order = Order.find_by(user_id: :user_id)
-    # else
-    #   @order = Order.create(user_id: current_user.id, cart_id: @cart.id)
-    # end
+
   end
 
   def create
@@ -33,6 +28,31 @@ class OrdersController < ApplicationController
     @user = current_user
     @cart = Cart.find(session[:cart_id])
     @order = @cart.orders.new(order_params)
+
+    token = params[:stripeToken]
+
+    card_brand = params[:user][:card_brand]
+    card_exp_month = params[:user][:card_exp_month]
+    card_exp_year = params[:user][:card_exp_year]
+    card_last4 = params[:user][:card_last4]
+
+    charge = Stripe::Charge.create(
+
+      :amount => @cart.total_price.to_i,
+      :currency => "usd",
+      :description => @cart.user.first_name,
+      :statement_descriptor => @cart.user.first_name,
+      :source => token
+    )
+
+
+    current_user.stripe_id = charge.id
+    current_user.card_brand = card_brand
+    current_user.card_exp_month = card_exp_month
+    current_user.card_exp_year = card_exp_year
+    current_user.card_last4 = card_last4
+    current_user.save!
+
     respond_to do |form|
       if @order.save
         form.html{ redirect_to @cart, notice: 'order was created' }
@@ -43,6 +63,10 @@ class OrdersController < ApplicationController
         form.json{ render json: @order.errors, status: unprocessable_entity }
       end
     end
+
+  rescue Stripe::CardError
+    flash.alert = e.message
+    render :new
 
   end
 

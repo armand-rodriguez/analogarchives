@@ -40,7 +40,8 @@ gem 'bulma-rails'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'cancancan', '~> 1.10'
-gem 'stripe' 
+gem 'stripe'
+gem 'figaro'
 
 
 group :development, :test do

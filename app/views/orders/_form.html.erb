@@ -1,6 +1,7 @@
-<%= form_with(model: @order, local: true) do |form| %>
+<%= form_with(model: @order, local: true, :html => {:id => "new_order"}) do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.hidden_field :cart_id, value: @cart.id %>
   <%= form.hidden_field :total_price, value: @cart.total_price %>
+    <%= render 'payments' %>
   <%= form.submit 'Finalize Order', class: 'button is-primary is-rounded' %>
 <% end %>
