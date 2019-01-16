@@ -10,8 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Get the target from the "data-target" attribute
         const target = el.dataset.target;
-        const $target = document.getElementById(target);
+        const $target = document.getElementById("navExpand");
 
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle('is-active');
@@ -44,14 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //----------------------- FADE OUT ---------------------------//
-// window.onload = function() {
-//   window.setTimeout(fadeout, 8000);
-// }
-//
-// function fadeout() {
-//   document.getElementById('notification1').style.display = 'none';
-// }
-// function fadeout() {
-//   document.getElementById('notification2').style.display = 'none';
-// }
-// document.get
+window.onload = function() {
+  window.setTimeout(fadeout, 8000);
+}
+
+function fadeout() {
+  // document.getElementById("notification1").style.display = 'none';
+  let notifications = document.getElementsByClassName("global-notification");
+  for (let i = 0; i < notifications.length; i++ ) {
+    notifications[i].style.display = 'none';
+  }
+}
+
+document.get

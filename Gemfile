@@ -42,6 +42,7 @@ gem "font-awesome-rails"
 gem 'cancancan', '~> 1.10'
 gem 'stripe'
 gem 'figaro'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 
 group :development, :test do
