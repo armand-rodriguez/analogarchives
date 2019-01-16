@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    @featured_article = Article.find(1)
+    @featured_article = Article.last
   end
 
   # GET /articles/1
