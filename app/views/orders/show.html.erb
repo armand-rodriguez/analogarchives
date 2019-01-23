@@ -1,12 +1,18 @@
+<h1 class="title">Order Reciept</h1>
 <h1><strong>User ID:</strong><%= @order.user_id %></h1>
-<h1><strong>Cart ID:</strong><%= @order.cart_id %></h1>
+<h1><strong>Cart Reference:</strong><%= @order.cart_id %></h1>
+<h1><strong>Order Reference:</strong><%= @order.id %></h1>
 <h1><strong>First Name:</strong><%= @order.user.first_name %></h1>
 <h1><strong>Last Name:</strong><%= @order.user.last_name %></h1>
 <h1><%= @order.user.email %></h1>
+<hr>
+<h1 class="subtitle">Purchased Items</h1>
 <% @order.cart.line_items.each do |line_item| %>
-  <p><%= line_item.product.artist %></p>
-  <p><%= line_item.product.album %></p>
+  <p><strong>Artist:</strong><%= line_item.product.artist %></p>
+  <p><strong>Album:</strong><%= line_item.product.album %></p>
+  <p><strong>Quantity:</strong><%= line_item.quantity %></p>
   <p><%= number_to_currency(line_item.product.price/100.to_f) %></p>
+  <hr>
 <% end %>
-<h1><%= number_to_currency(@order.cart.total_price/100.to_f) %></h1>
+<h1 class="subtitle">Total Price</h1>
 <h1><strong>Total Price:</strong><%= number_to_currency(@order.total_price/100.to_f) %></h1>

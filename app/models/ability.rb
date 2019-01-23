@@ -34,12 +34,12 @@ class Ability
       user ||= User.new
       if user.admin?
         can :manage, :all
-      elsif !user.is_guest?
+      else !user.is_guest?
         can :manage, User, id: user.id
         can :read, Cart, user_id: user.id
         can :create, Order
-      elsif user.is_guest?
-        can :read, Cart, user_id: user.id
+        can :read, Order, user_id: user.id
+        
       end
 
 

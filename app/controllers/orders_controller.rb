@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   # skip_authorize_resource only: [:show, :new, :create]
 
   def index
-    @orders = Order.all
+    if current_user.admin?
+      @orders = Order.all
+    else
+      @orders= Order.where(user_id: current_user.id)
+    end
   end
 
   def show
@@ -58,7 +62,7 @@ class OrdersController < ApplicationController
         form.html{ redirect_to @cart, notice: 'order was created' }
         form.json{ render 'show', status: :created, location: @order }
         @cart.increment!(:status, 1)
-        UserMailer.order_form(current_user).deliver_now
+        UserMailer.order_form(current_user, @cart).deliver_now
       else
         form.html{ render 'index', notice: 'there was a problem.' }
         form.json{ render json: @order.errors, status: unprocessable_entity }

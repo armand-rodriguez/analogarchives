@@ -2,6 +2,7 @@
 
 <% @orders.each do |order| %>
 <div class="container">
+  <%= link_to order.id, order %> 
   <p><strong>Order id:</strong><%= order.id %></p>
   <p><strong>User id:</strong><%= order.user_id %>
   <%= order.user.first_name %><br>
