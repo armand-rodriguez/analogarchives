@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
   end
   def order_form(user)
     mail(
-      to: user.email
+      to: user.email,
       subject: "Thank you for submitting your order to Analog Archives!"
     )
 
