@@ -58,6 +58,7 @@ class OrdersController < ApplicationController
         form.html{ redirect_to @cart, notice: 'order was created' }
         form.json{ render 'show', status: :created, location: @order }
         @cart.increment!(:status, 1)
+        UserMailer.order_form(current_user).deliver_now
       else
         form.html{ render 'index', notice: 'there was a problem.' }
         form.json{ render json: @order.errors, status: unprocessable_entity }
