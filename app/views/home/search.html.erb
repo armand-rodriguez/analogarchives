@@ -1,0 +1,17 @@
+<% if !@products && !@articles %>
+  <h1 class="subtitle">Search for an album or artist!</h1>
+<% end %>
+
+<% if @products %>
+  <% @products.each do |product| %>
+    <h1 class="title"><%= product.artist %></h1>
+    <%= product.album %>
+  <% end %>
+<% end %>
+
+<% if @articles %>
+  <% @articles.each do |article| %>
+    <h1 class="title"><%= article.title %></h1>
+    <%= article.description %>
+  <% end %>
+<% end %>

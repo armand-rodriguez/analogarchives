@@ -1,8 +1,14 @@
 <h1 class="title">Orders</h1>
 
+<%= form_with(url: orders_path, method: 'get', local: true) do |form| %>
+  <%= form.label :q, 'Search Orders by Order Number' %>
+  <%= form.text_area :q, id: 'q', value: params[:q] %>
+  <%= form.submit 'Search' %>
+<% end %>
+
 <% @orders.each do |order| %>
 <div class="container">
-  <%= link_to order.id, order %> 
+  <%= link_to order.id, order %>
   <p><strong>Order id:</strong><%= order.id %></p>
   <p><strong>User id:</strong><%= order.user_id %>
   <%= order.user.first_name %><br>

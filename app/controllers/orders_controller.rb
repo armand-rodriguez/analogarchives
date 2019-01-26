@@ -5,7 +5,13 @@ class OrdersController < ApplicationController
 
   def index
     if current_user.admin?
-      @orders = Order.all
+      if params[:q]
+        #search based on id or some sort of order number
+        search_term = params[:q]
+        @orders = Order.where(id: search_term)
+      else
+        @orders = Order.all
+      end
     else
       @orders= Order.where(user_id: current_user.id)
     end

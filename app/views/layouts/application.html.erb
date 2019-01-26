@@ -41,6 +41,11 @@
           <div class="buttons">
             <%= link_to 'Shop', products_path, class: 'navbar-item button' %>
           </div>
+          <%= form_with(url: home_search_path, method: 'get', local: true) do |form| %>
+            <%= form.label :q, 'Search' %>
+            <%= form.text_area :q, id: 'q', value: params[:q]  %>
+            <%= form.submit 'Search' %>
+          <% end %>
 
         </div>
         <div class="navbar-end">
