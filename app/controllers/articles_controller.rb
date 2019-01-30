@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    if @first_visit
+      redirect_to home_landing_path
+    end
     @articles = Article.all
     @featured_article = Article.last
   end

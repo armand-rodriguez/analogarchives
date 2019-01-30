@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'home/contact'
   get 'home/search'
+  get 'home/about'
+  get 'home/index'
+  get 'home/landing'
   post 'home/thank_you'
-  root 'home#index'
+  root 'articles#index'
 end

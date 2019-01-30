@@ -5,13 +5,14 @@
 <% if @products %>
   <% @products.each do |product| %>
     <h1 class="title"><%= product.artist %></h1>
-    <%= product.album %>
+    <h1 class="subtitle"><%= product.album %></h1>
   <% end %>
 <% end %>
 
 <% if @articles %>
   <% @articles.each do |article| %>
     <h1 class="title"><%= article.title %></h1>
-    <%= article.description %>
+    <p><%= article.description %></p>
+    <p><%= truncate(article.body) %></p>
   <% end %>
 <% end %>

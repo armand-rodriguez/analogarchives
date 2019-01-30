@@ -44,6 +44,7 @@ gem 'stripe'
 gem 'figaro'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "brakeman"
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 
 group :development, :test do

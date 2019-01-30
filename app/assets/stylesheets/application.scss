@@ -21,3 +21,65 @@
 .notification:not(:last-child) {
   margin-bottom: 0;
 }
+
+.flexbox-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  .form-group {
+    width: 100%;
+  }
+  .btn-primary {
+    margin-bottom: 16px
+  }
+}
+
+/************* Navigation Logo ***************/
+
+.analog-archives-sm {
+
+}
+
+.navbar-logo {
+  background: url('analog-archives-sm.sm') no-repeat center;
+  background-size: cover;
+}
+
+
+
+
+/*************** Landing Splash Animation **************************/
+
+#ANALOG-ARCHIVES-FACE {
+  animation: flashinganalogarchivesface .2s infinite;
+}
+
+#ANALOG-ARCHIVES-BODY {
+  animation: flashinganalogarchivesbody .2s infinite;
+}
+
+@keyframes flashinganalogarchivesface {
+
+  0% {
+    fill: #000000;
+  }
+  50% {
+    fill: #fff;
+  }
+  100% {
+    fill: #000;
+  }
+}
+
+@keyframes flashinganalogarchivesbody {
+
+  0% {
+    fill-opacity: 1;
+  }
+  50% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}

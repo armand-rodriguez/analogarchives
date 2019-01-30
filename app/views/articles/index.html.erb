@@ -22,27 +22,28 @@
 
   </div>
 </div>
-
-<div class="columns is-centered">
 <h1 class="title has-text-centered">Articles</h1>
+<div class="columns is-multiline">
+
+
 
   <% @articles.each do |article| %>
-  <div class="column">
-    <div class="card">
-      <%= link_to article do %>
-      <div class="card-image">
-        <figure class="image is-square">
-            <%= image_tag(article.image) %>
-        </figure>
+    <div class="column is-one-third">
+      <div class="card">
+        <%= link_to article do %>
+        <div class="card-image">
+          <figure class="image is-square">
+              <%= image_tag(article.image) %>
+          </figure>
+        </div>
+        <div class="card-content">
+          <h2 class="title is-6"><strong><%= article.title %></strong></h2>
+          <p><%= article.description %></p>
+          <p><%= truncate(article.body) %></p>
+        </div>
+        <% end %>
       </div>
-      <div class="card-content">
-        <h2 class="title is-6"><strong><%= article.title %></strong></h2>
-        <p><%= article.description %></p>
-        <p><%= truncate(article.body) %></p>
-      </div>
-      <% end %>
     </div>
-  </div>
   <% end %>
 
 </div>

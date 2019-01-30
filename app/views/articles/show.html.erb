@@ -11,8 +11,13 @@
   <p class="subtitle">
     <%= @article.description %>
   </p>
+  <p>
+    <%= @article.body %>
+  </p>
 
 <% if signed_in? && current_user.admin? %>
-  <%= link_to 'Edit', edit_article_path(@article), class: "button is-info" %><br>
+<p>
+  <%= link_to 'Edit', edit_article_path(@article), class: "button is-dark" %><br>
+</p>
 <% end %>
-<%= link_to 'Back', articles_path, class: "button is-warning" %>
+<%= link_to 'Back', articles_path, class: "button is-black" %>

@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   before_action :current_or_guest_user
   before_action :set_cart
+  before_action :first_time_visit, unless: -> { cookies[:first_visit] }
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, alert: exception.message
+    redirect_to articles_path, alert: exception.message
   end
 
 
@@ -29,6 +30,13 @@ class ApplicationController < ActionController::Base
    rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user if with_retry
+  end
+
+
+
+  def first_time_visit
+     cookies.permanent[:first_visit] = 1
+     @first_visit = true
   end
 
   private

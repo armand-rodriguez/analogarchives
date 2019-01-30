@@ -1,11 +1,15 @@
 <h1 class="title">Orders</h1>
-
-<%= form_with(url: orders_path, method: 'get', local: true) do |form| %>
-  <%= form.label :q, 'Search Orders by Order Number' %>
-  <%= form.text_area :q, id: 'q', value: params[:q] %>
-  <%= form.submit 'Search' %>
+<% if @orders.count > 0 %>
+  <%= form_with(url: orders_path, method: 'get', local: true) do |form| %>
+    <%= form.label :q, 'Search Orders by Order Number' %>
+    <%= form.text_area :q, id: 'q', value: params[:q] %>
+    <%= form.submit 'Search' %>
+  <% end %>
 <% end %>
 
+<% if @orders.count == 0 %>
+  <h1>You have no orders</h1>
+<% end %>
 <% @orders.each do |order| %>
 <div class="container">
   <%= link_to order.id, order %>
