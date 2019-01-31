@@ -85,6 +85,14 @@ class OrdersController < ApplicationController
 
   end
 
+  #be careful about routing this action
+
+  def update
+    @order = Order.find(params[:id])
+    @cart = @order.cart
+
+  end
+
   private
 
   def order_params

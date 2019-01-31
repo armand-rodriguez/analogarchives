@@ -38,7 +38,7 @@
         </div>
         <div class="navbar-menu" id="navMenu">
           <div class="navbar-start">
-        
+
             <%= link_to 'Contact', home_contact_path, class: 'navbar-item is-active' %>
             <div class="navbar-item">
               <%= link_to 'Shop', products_path, class: 'button is-dark' %>
@@ -95,12 +95,12 @@
 
     <% end %>
     <% unless action_name == "landing" %>
-      <section class="section">
+
 
     <% end %>
         <%= yield %>
     <% unless action_name == "landing" %>
-    </section>
+    
     <% end %>
 
   </body>
