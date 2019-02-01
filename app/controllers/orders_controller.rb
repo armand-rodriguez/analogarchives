@@ -88,10 +88,22 @@ class OrdersController < ApplicationController
   #be careful about routing this action
 
   def update
-    @order = Order.find(params[:id])
-    @cart = @order.cart
 
   end
+
+  def edit
+    @order = Order.find(params[:id])
+    @cart = @order.cart
+    if @cart.status == 2
+      if @cart.update_attributes(status: 3)
+        redirect_to @order
+        flash[:notice] = "Marked as shipped!"
+      end
+    end
+
+  end
+
+
 
   private
 

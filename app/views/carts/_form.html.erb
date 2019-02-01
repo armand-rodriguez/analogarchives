@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+  <%# <%= form.hidden_field :status, value: 3 %>
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit 'Mark as Shipped', class: 'button is-info' %>
+  </div> %>
 <% end %>

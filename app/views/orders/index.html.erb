@@ -18,6 +18,9 @@
   <%= order.user.first_name %><br>
   <%= order.user.last_name %>
   <p>Cart Id:<%= order.cart_id %></p>
+  <p><strong>Order Status:
+    <% if order.cart.status == 3 %> <strong>Shipped</strong><% end %>
+    <% if order.cart.status == 2 %> <strong>Awaiting Shipment</strong> <% end %></strong></p>
   <hr>
 </div>
 <% end %>

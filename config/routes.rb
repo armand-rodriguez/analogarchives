@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :line_items
-  resources :carts, only: [:show, :index, :edit, :destroy]
+  resources :carts, only: [:show, :index, :destroy]
   resources :products
   resources :articles
-  resources :orders, only: [:index, :show, :new, :create]
+  resources :orders, only: [:index, :show, :new, :create, :edit]
   resources :payments, only: [:new, :create]
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'users/sessions', confirmations: 'confirmations' }
   # devise_for :users, controllers: { sessions: 'users/sessions' }
