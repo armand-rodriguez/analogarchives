@@ -12,12 +12,13 @@
 <% end %>
 <% @orders.each do |order| %>
 <div class="container">
-  <%= link_to order.id, order %>
-  <p><strong>Order id:</strong><%= order.id %></p>
-  <p><strong>User id:</strong><%= order.user_id %>
-  <%= order.user.first_name %><br>
-  <%= order.user.last_name %>
-  <p>Cart Id:<%= order.cart_id %></p>
+  <p><strong>Order id:</strong><%= link_to order.id, order %></p>
+  <% if current_user.admin? %>
+  <p><strong>User id:</strong><%= order.user_id %><br>
+  <% end %>
+  <strong>First Name:</strong><%= order.user.first_name %><br>
+  <strong>Last Name:</strong><%= order.user.last_name %>
+  <p><strong>Cart Id:</strong><%= order.cart_id %></p>
   <p><strong>Order Status:
     <% if order.cart.status == 3 %> <strong>Shipped</strong><% end %>
     <% if order.cart.status == 2 %> <strong>Awaiting Shipment</strong> <% end %></strong></p>

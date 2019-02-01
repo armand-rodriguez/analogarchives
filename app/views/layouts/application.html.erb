@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= tag :meta, name: "stripe-public-key", content: Figaro.env.stripe_publishable_key %>
   </head>
 
@@ -100,7 +100,7 @@
     <% end %>
         <%= yield %>
     <% unless action_name == "landing" %>
-    
+
     <% end %>
 
   </body>
