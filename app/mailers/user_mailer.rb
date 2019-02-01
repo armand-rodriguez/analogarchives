@@ -16,4 +16,14 @@ class UserMailer < ApplicationMailer
     )
 
   end
+  def shipping_confirmation(user, order, cart)
+    @order_number = order.id
+    @user_first_name = user.first_name
+    @products = cart.line_items
+    @total_price = cart.total_price
+    mail(
+      to: user.email,
+      subject: "Your order has been shipped! Thank you for your purchase!"
+    )
+  end
 end

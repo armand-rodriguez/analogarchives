@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+    <tr>
+      <td><h2>Thank you <%= @user_first_name %> for your purchase with Analog Archives! Your order has been successfully shipped!</h2></td>
+    </tr>
+    <tr>
+      <td><strong><p>Order Recepit</p></strong></td>
+    </tr>
+    <tr>
+      <td><p>Total Price: <%= number_to_currency(@total_price/100.to_f) %> </p></td>
+    </tr>
+    <tr>
+      <td><p><strong>Products Purchased</strong></p><br>
+        <% @products.each do |product| %>
+          <strong>Artist:</strong><p><%= product.product.artist %></p>
+          <strong>Album:</strong><strong><%= product.product.album %></strong>
+          <strong>Quantity: </strong><strong><%= product.quantity %></strong>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

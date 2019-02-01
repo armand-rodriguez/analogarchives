@@ -96,6 +96,7 @@ class OrdersController < ApplicationController
     @cart = @order.cart
     if @cart.status == 2
       if @cart.update_attributes(status: 3)
+        UserMailer.shipping_confirmation(current_user, @order, @cart).deliver_now
         redirect_to @order
         flash[:notice] = "Marked as shipped!"
       end
