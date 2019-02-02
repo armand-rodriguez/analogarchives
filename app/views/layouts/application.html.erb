@@ -71,7 +71,7 @@
                         <i class="fa fa-shopping-cart"></i>
                       </span>
                         <% if @cart.line_items.count > 0 %>
-                          <span class="is-dark tag"><%= @cart.line_items.count %></span>
+                          <span class="is-dark tag"><%= @cart.total_items %></span>
                         <% end %>
                     <% end %>
                   <% end %>
