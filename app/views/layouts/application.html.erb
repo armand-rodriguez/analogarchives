@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= tag :meta, name: "stripe-public-key", content: Figaro.env.stripe_publishable_key %>
   </head>
 
@@ -28,7 +29,7 @@
       <nav class="navbar is-black" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <%= link_to root_path, class:'navbar-item analog-archives-sm' do %>
-               <%= image_tag('analog_archives_sm.svg', class: '') %>
+              
           <% end %>
           <a class="navbar-burger burger" role="button" aria-label="menu" aria-expanded="false" data-target="navMenu" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
             <span aria-hidden="true"></span>

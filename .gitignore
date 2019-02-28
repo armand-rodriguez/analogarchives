@@ -32,3 +32,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore credentials.yml.enc
+/config/credentials.yml.enc
+
+#Ignore Devise Secret Key
+/config/initializers/devise.rb
